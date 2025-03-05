@@ -1,30 +1,29 @@
 import { Field, Form, Formik } from "formik";
-import { login } from "../../redux/auth/operations";
-import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+//import { login } from "../../redux/auth/operations";
+//import toast from "react-hot-toast";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+// import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 export const LoginPages = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: "",
     password: "",
   };
-  const handleSubmit = (values, options) => {
-    dispatch(login(values))
-      .unwrap()
-      .then((res) => {
-        toast(`Welcome, ${res.user.name}!`);
-        navigate("/");
-      })
-      .catch(() => {
-        toast.error("invalid credentials");
-      });
-    options.resetForm();
-  };
+  // const handleSubmit = (values, options) => {
+  //   dispatch(login(values))
+  //     .unwrap()
+  //     .then((res) => {
+  //       toast(`Welcome, ${res.user.name}!`);
+  //       navigate("/");
+  //     })
+  //     .catch(() => {
+  //       toast.error("invalid credentials");
+  //     });
+  //   options.resetForm();  };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -39,7 +38,7 @@ export const LoginPages = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        <Formik  initialValues={initialValues}>
           <Form action="#" method="POST" className="space-y-6">
             <div>
               <label

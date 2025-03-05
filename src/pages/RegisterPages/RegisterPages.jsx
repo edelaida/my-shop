@@ -1,19 +1,19 @@
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/operations";
+// import { useDispatch } from "react-redux";
+// import { register } from "../../redux/auth/operations";
 
 export const RegisterPages = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const initialValues = {
     name: "",
     email: "",
     password: "",
   };
-  const handleSubmit = (values, options) => {
-    console.log(values);
-    dispatch(register(values));
-    options.resetForm();
-  };
+  // const handleSubmit = (values, options) => {
+  //   console.log(values);
+  //   dispatch(register(values));
+  //   options.resetForm();
+  // };
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -29,7 +29,7 @@ export const RegisterPages = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        <Formik   initialValues={initialValues}>
           <Form action="#" method="POST" className="space-y-6">
             <div>
               <label
@@ -104,3 +104,6 @@ export const RegisterPages = () => {
     </div>
   );
 };
+
+
+// onSubmit={handleSubmit}
