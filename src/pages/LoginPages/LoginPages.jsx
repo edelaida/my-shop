@@ -13,7 +13,7 @@ export const LoginPages = () => {
     email: "",
     password: "",
   };
-  // const handleSubmit = (values, options) => {
+   const handleSubmit = (values, options) => {
   //   dispatch(login(values))
   //     .unwrap()
   //     .then((res) => {
@@ -22,8 +22,9 @@ export const LoginPages = () => {
   //     })
   //     .catch(() => {
   //       toast.error("invalid credentials");
-  //     });
-  //   options.resetForm();  };
+     //     });
+     console.log(values);
+     options.resetForm();  };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -38,7 +39,7 @@ export const LoginPages = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <Formik  initialValues={initialValues}>
+        <Formik  initialValues={initialValues} onSubmit={handleSubmit}>
           <Form action="#" method="POST" className="space-y-6">
             <div>
               <label

@@ -4,6 +4,7 @@ import { RegisterPages } from './pages/RegisterPages/RegisterPages.jsx';
 import { Layout } from "./componenets/Layout";
 import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
 import { ShopPages } from "./pages/ShopPages/ShopPages.jsx";
+import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
 
 // import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
@@ -21,6 +22,7 @@ export const App = () => {
         <Route path='register' element={<RegisterPages />} />
         <Route path='contacts' element={<ShopPages /> } />
       </Route>
+      <Route path='*' element={<NotFoundPages />} />
     </Routes>
   );
 };

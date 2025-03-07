@@ -7,4 +7,4 @@ export const NotFoundPages = () => {
         />
       </div>
     );
-  };
+};  
