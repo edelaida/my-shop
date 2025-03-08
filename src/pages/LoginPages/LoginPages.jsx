@@ -1,20 +1,20 @@
 import { Field, Form, Formik } from "formik";
-//import { login } from "../../redux/auth/operations";
+import { login } from "../../redux/auth/operations.js";
 //import toast from "react-hot-toast";
-// import { useDispatch, useSelector } from "react-redux";
+ import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors";
+ import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 
 export const LoginPages = () => {
-  // const dispatch = useDispatch();
+   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
+   const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: "",
     password: "",
   };
    const handleSubmit = (values, options) => {
-  //   dispatch(login(values))
+      dispatch(login(values))
   //     .unwrap()
   //     .then((res) => {
   //       toast(`Welcome, ${res.user.name}!`);
@@ -28,11 +28,11 @@ export const LoginPages = () => {
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img
+        {/* <img
           alt="Your Company"
           src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
           className="mx-auto h-10 w-auto"
-        />
+        /> */}
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Sign in to your account
         </h2>
