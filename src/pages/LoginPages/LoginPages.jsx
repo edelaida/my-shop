@@ -1,13 +1,13 @@
 import { Field, Form, Formik } from "formik";
 import { login } from "../../redux/auth/operations.js";
-//import toast from "react-hot-toast";
+import toast from "react-hot-toast";
  import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+ import { useNavigate } from "react-router-dom";
  import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 
 export const LoginPages = () => {
    const dispatch = useDispatch();
-  // const navigate = useNavigate();
+   const navigate = useNavigate();
    const isLoggedIn = useSelector(selectIsLoggedIn);
   const initialValues = {
     email: "",
@@ -15,15 +15,15 @@ export const LoginPages = () => {
   };
    const handleSubmit = (values, options) => {
       dispatch(login(values))
-  //     .unwrap()
-  //     .then((res) => {
-  //       toast(`Welcome, ${res.user.name}!`);
-  //       navigate("/");
-  //     })
-  //     .catch(() => {
-  //       toast.error("invalid credentials");
-     //     });
-     console.log(values);
+      .unwrap()
+      .then((res) => {
+        toast(`Welcome, ${res.user.name}!`);
+        navigate("/");
+      })
+      .catch(() => {
+        toast.error("invalid credentials");
+         });
+    // console.log(values);
      options.resetForm();  };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">

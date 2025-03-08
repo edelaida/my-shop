@@ -7,7 +7,7 @@ const initialState = {
         email: '',
     },
     token: '',
-    isloggedIn: false,  
+    isLoggedIn: false,  
 };
 
 const slice = createSlice({
@@ -18,12 +18,12 @@ const slice = createSlice({
             .addCase(register.fulfilled, (state, action) => {
                 state.user = action.payload.user;
                 state.token = action.payload.token;
-                state.isloggedIn = true;
+                state.isLoggedIn = true;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.user = action.payload.user;
                 state.token = action.payload.token;
-                state.isloggedIn = true;
+                state.isLoggedIn = true;
             })
     }
 });

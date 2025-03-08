@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 import clsx from "clsx";
@@ -9,16 +9,14 @@ export const Header = () => {
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.activeLink);
   };
-   const dispatch = useDispatch();
   const user = useSelector(selectUser);  
   const isLoggedIn = useSelector(selectIsLoggedIn);
   console.log(isLoggedIn); 
   return (
     <div className={s.wrapper}>
       <div>XA_XA_XA</div>
-      {/* {isLoggedIn && <div>Welcome, {user.name}</div>} */}
-      <div>Welcome, {user.name}</div>
-      <div className={s.wrapperLinks}>
+      {isLoggedIn && <div>Welcome, {user.name}</div>}
+        <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to="/">Home</NavLink>
         <NavLink className={buildLinkClass} to="/contacts">Contacts</NavLink>
         {!isLoggedIn && (
