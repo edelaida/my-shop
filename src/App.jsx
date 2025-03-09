@@ -3,7 +3,7 @@ import { HomePages } from './pages/HomePages/HomePages.jsx';
 import { RegisterPages } from './pages/RegisterPages/RegisterPages.jsx';
 import { Layout } from "./componenets/Layout";
 import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
-import { ShopPages } from "./pages/Products/Products.jsx";
+import { Products } from "./pages/Products/Products.jsx";
 import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
 
 // import { useDispatch, useSelector } from "react-redux";
