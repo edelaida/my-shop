@@ -3,7 +3,7 @@ import { HomePages } from './pages/HomePages/HomePages.jsx';
 import { RegisterPages } from './pages/RegisterPages/RegisterPages.jsx';
 import { Layout } from "./componenets/Layout";
 import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
-import { ShopPages } from "./pages/ShopPages/ShopPages.jsx";
+import { ShopPages } from "./pages/Products/Products.jsx";
 import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
 
 // import { useDispatch, useSelector } from "react-redux";
@@ -20,7 +20,7 @@ export const App = () => {
         <Route index element={<HomePages /> } />
         <Route path='login' element={<LoginPages />} />
         <Route path='register' element={<RegisterPages />} />
-        <Route path='contacts' element={<ShopPages /> } />
+        <Route path='contacts' element={<Products /> } />
       </Route>
       <Route path='*' element={<NotFoundPages />} />
     </Routes>
