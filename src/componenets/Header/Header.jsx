@@ -18,10 +18,11 @@ export const Header = () => {
       <div>XA_XA_XA</div>
       {isLoggedIn && <div>Welcome, {user.name}</div>}
         <div className={s.wrapperLinks}>
-        <NavLink className={buildLinkClass} to="/">Home</NavLink>
-        <NavLink className={buildLinkClass} to="/contacts">Products</NavLink>
+        {/* <NavLink className={buildLinkClass} to="/">Home</NavLink> */}
+        <NavLink className={buildLinkClass} to="/contacts">Carts</NavLink>
         {!isLoggedIn && (
           <>
+             <NavLink className={buildLinkClass} to="/">Home</NavLink>
             <NavLink className={buildLinkClass} to="/login">Login</NavLink>
             <NavLink className={buildLinkClass} to="/register">Register</NavLink>
          </>
