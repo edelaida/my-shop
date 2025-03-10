@@ -5,6 +5,7 @@ import { Layout } from "./componenets/Layout";
 import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
 import { Products } from "./pages/Products/Products.jsx";
 import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
+import { Cart } from "./pages/Cart/Cart.jsx";
 
 // import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
@@ -20,7 +21,8 @@ export const App = () => {
         <Route index element={<HomePages /> } />
         <Route path='login' element={<LoginPages />} />
         <Route path='register' element={<RegisterPages />} />
-        <Route path='contacts' element={<Products /> } />
+        <Route path='t1' element={<Products />} />
+        <Route path='t1/cart' element={<Cart /> } />
       </Route>
       <Route path='*' element={<NotFoundPages />} />
     </Routes>

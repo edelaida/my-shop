@@ -18,8 +18,8 @@ export const Header = () => {
       <div>XA_XA_XA</div>
       {isLoggedIn && <div>Welcome, {user.name}</div>}
         <div className={s.wrapperLinks}>
-        {/* <NavLink className={buildLinkClass} to="/">Home</NavLink> */}
-        <NavLink className={buildLinkClass} to="/contacts">Carts</NavLink>
+        <NavLink className={buildLinkClass} to="/t1">Products</NavLink>
+        <NavLink className={buildLinkClass} to="/t1/cart">Cart</NavLink>
         {!isLoggedIn && (
           <>
              <NavLink className={buildLinkClass} to="/">Home</NavLink>
