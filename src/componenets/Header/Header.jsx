@@ -15,14 +15,14 @@ export const Header = () => {
 
   return (
     <div className={s.wrapper}>
-      <div>XA_XA_XA</div>
+      <div>Shop cart</div>
       {isLoggedIn && <div>Welcome, {user.name}</div>}
         <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to="/t1">Products</NavLink>
         <NavLink className={buildLinkClass} to="/t1/cart">Cart</NavLink>
         {!isLoggedIn && (
           <>
-             <NavLink className={buildLinkClass} to="/">Home</NavLink>
+            <NavLink className={buildLinkClass} to="/">Home</NavLink>
             <NavLink className={buildLinkClass} to="/login">Login</NavLink>
             <NavLink className={buildLinkClass} to="/register">Register</NavLink>
          </>

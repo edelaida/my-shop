@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { addToCart, fetchCart, removeFromCart } from "./cartOps";
+import { addToCart, fetchCart, removeFromCart } from "./cartOps.js";
 
 const initialState = {
   items: [],
@@ -26,7 +26,7 @@ const slice = createSlice({
 
 export const cartSlice = slice.reducer;
 
-export const selectCart = (state) => state.cart.items;
+export const selectCart = state => state.cart.items;
 export const selectAmount = createSelector([selectCart], (cart) => {
   return cart
     .reduce((amount, curr) => amount + curr.price * curr.count, 0)

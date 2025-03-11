@@ -6,15 +6,21 @@ import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
 import { Products } from "./pages/Products/Products.jsx";
 import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
 import { Cart } from "./pages/Cart/Cart.jsx";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refresh } from "./redux/auth/operations.js";
 
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
-// import { refresh } from "./redux/auth/operations";
 // import { selectIsRefreshing } from "./redux/auth/selectors";
 // import { RestrictedRoute } from "./components/RestrictedRoute";
 // import { PrivateRoute } from "./components/PrivateRoute";
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
+
   return (
     <Routes>
       <Route path='/' element={<Layout />} > 
@@ -29,11 +35,6 @@ export const App = () => {
   );
 };
 
-
-// const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(refresh());
-  // }, [dispatch]);
 
   // const isRefreshing = useSelector(selectIsRefreshing);
 
