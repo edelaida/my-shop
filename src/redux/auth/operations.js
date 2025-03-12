@@ -6,7 +6,7 @@ export const goitApi = axios.create({
   baseURL: 'https://connections-api.goit.global',
 });
 
-const setAuthHeader = token => {
+const setAuthHeader = (token) => {
   goitApi.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -38,17 +38,18 @@ export const logout = createAsyncThunk('logout', async (_, thunkApi) => {
   }
 });
 
-export const refresh = createAsyncThunk('refresh', async (_, thunkApi) => {
+export const refresh = createAsyncThunk("refresh", async (_, thunkApi) => {
   try {
-    const savedToken = thunkApi.getState().auth.token;
+   const savedToken = thunkApi.getState().auth.token;
+
     if (!savedToken) {
       return thunkApi.rejectWithValue("Token does not exist!");
-    };
+    }
+    
     setAuthHeader(savedToken);
-    const { data } = await goitApi.post('users/current');
+    const { data } = await goitApi.get("users/current");
     return data;
   } catch (error) {
     return thunkApi.rejectWithValue(error.message);
   }
 });
- 

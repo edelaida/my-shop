@@ -6,13 +6,13 @@ import { LoginPages } from './pages/LoginPages/LoginPages.jsx';
 import { Products } from "./pages/Products/Products.jsx";
 import { NotFoundPages } from "./pages/NotFoundPages/NotFoundPages.jsx";
 import { Cart } from "./pages/Cart/Cart.jsx";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { refresh } from "./redux/auth/operations.js";
+import { selectIsRefreshing } from "./redux/auth/selectors.js";
+import { PrivateRoute } from "./componenets/PrivateRoute.jsx";
+import { RestrictedRoute } from "./componenets/RestrictedRoute.jsx";
 
-// import { selectIsRefreshing } from "./redux/auth/selectors";
-// import { RestrictedRoute } from "./components/RestrictedRoute";
-// import { PrivateRoute } from "./components/PrivateRoute";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -20,14 +20,18 @@ export const App = () => {
     dispatch(refresh());
   }, [dispatch]);
 
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  return (
+  return isRefreshing ? null : (
     <Routes>
       <Route path='/' element={<Layout />} > 
         <Route index element={<HomePages /> } />
-        <Route path='login' element={<LoginPages />} />
-        <Route path='register' element={<RegisterPages />} />
-        <Route path='t1' element={<Products />} />
+        <Route path='login' element={
+          <RestrictedRoute component={<LoginPages />} redirectTo='/t1'/> } />
+        <Route path='register' element={
+          <RestrictedRoute component={<RegisterPages />} redirectTo='/t1'/> } />          
+        <Route path='t1' element={
+          <PrivateRoute component={<Products />} redirectTo='/login'/> } />
         <Route path='t1/cart' element={<Cart /> } />
       </Route>
       <Route path='*' element={<NotFoundPages />} />
@@ -35,8 +39,6 @@ export const App = () => {
   );
 };
 
-
-  // const isRefreshing = useSelector(selectIsRefreshing);
 
 
 //   return isRefreshing ? null : (

@@ -1,15 +1,11 @@
 import { Field, Form, Formik } from "formik";
 import { login } from "../../redux/auth/operations.js";
 import toast from "react-hot-toast";
- import { useDispatch, useSelector } from "react-redux";
- import { useNavigate } from "react-router-dom";
- import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
-
+ import { useDispatch } from "react-redux";
+ 
 export const LoginPages = () => {
    const dispatch = useDispatch();
-   const navigate = useNavigate();
-   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const initialValues = {
+   const initialValues = {
     email: "",
     password: "",
   };
@@ -17,14 +13,14 @@ export const LoginPages = () => {
       dispatch(login(values))
       .unwrap()
       .then((res) => {
-        toast(`Welcome, ${res.user.name}!`);
-        navigate("/");
+        toast(`Welcome, ${res.user.name}!`);        
       })
       .catch(() => {
         toast.error("invalid credentials");
-         });
-    // console.log(values);
-     options.resetForm();  };
+         });    
+    options.resetForm();
+  };
+  
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -39,7 +35,7 @@ export const LoginPages = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <Formik  initialValues={initialValues} onSubmit={handleSubmit}>
+        <Formik  initialValues={initialValues} onSubmit={handleSubmit} >
           <Form action="#" method="POST" className="space-y-6">
             <div>
               <label
@@ -88,15 +84,13 @@ export const LoginPages = () => {
                 />
               </div>
             </div>
-
-            <div>
+            
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
-              </button>
-            </div>
+              </button>            
           </Form>
         </Formik>
       </div>
