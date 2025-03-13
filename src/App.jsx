@@ -32,7 +32,8 @@ export const App = () => {
           <RestrictedRoute component={<RegisterPages />} redirectTo='/t1'/> } />          
         <Route path='t1' element={
           <PrivateRoute component={<Products />} redirectTo='/login'/> } />
-        <Route path='t1/cart' element={<Cart /> } />
+        <Route path='t1/cart' element={
+          <PrivateRoute component={<Cart />} redirectTo='/login'/> } />         
       </Route>
       <Route path='*' element={<NotFoundPages />} />
     </Routes>
