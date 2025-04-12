@@ -12,7 +12,7 @@ export const Product = ({ product }) => {
                 onClick={() => dispatch(addToCart(product))}
                 className="btn btn-primary"
               >
-                Add to cart
+                Add to my cart
               </button>
             </div>
           </li>

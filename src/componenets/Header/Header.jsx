@@ -15,7 +15,7 @@ export const Header = () => {
 
   return (
     <div className={s.wrapper}>
-      <div>Shop cart</div>
+      <div>Shop my cart</div>
       {isLoggedIn && <div>Welcome, {user.name}</div>}
         <div className={s.wrapperLinks}>
         <NavLink className={buildLinkClass} to="/t1">Products</NavLink>
@@ -32,7 +32,7 @@ export const Header = () => {
             onClick={() => dispatch(logout())}
             className="btn btn-secondary"
           >
-            Exit
+            Exit cart
           </button>
         )}
       </div>
